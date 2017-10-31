@@ -1,0 +1,17 @@
+<form id="frmLogin" name="frmLogin" (submit)="login($event)">
+  <div>
+      <a href="http://optiisolutions.com/" target="_blank" title="Check out our homepage">
+          <img src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/image001.png" /></a>
+      <label for="userName">User Name</label>
+      <input type="text" id="userName" data-ng-model="currentUser.userName" required oninvalid="this.setCustomValidity(' ')" oninput="setCustomValidity('')" />
+      <label for="lastName">Password</label>
+      <input type="password" id="txtpassword" data-ng-model="currentUser.password" required oninvalid="this.setCustomValidity(' ')" oninput="setCustomValidity('')" />
+      <br />
+      <select data-ng-model="currentUser.selectedAssetTreeItem" data-ng-options="at.assetTreeId as at.assetName for at in currentUser.assetTreeAccessList" data-ng-show="currentUser.assetTreeAccessList.length > 1"></select>
+      <label data-ng-show="loginResultMessage.length">
+          
+      </label>
+
+      <input type="submit" id="btnSubmit" class="btn" value="Login" />
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<nav id="main_nav" [@increasewidth]='state'>
+        <ul class="nav navbar-nav navbar-right">
+            <li (click)="menuExpander()" id='menuExpand' style="height: 49px">
+                <table style="width: 100%; height: 100%;">
+                    <tr>
+                        <td style="width: 142px; padding: 0,0,0,0; margin: 0,0,0,0; vertical-align: top">
+                            <span class="optiiVersion" style="padding: 0,0,0,0; margin: 0,0,0,0; vertical-align: top">
+                                VERSION 1.0.2
+                            </span>
+
+                        </td>
+                        <td>
+                            <img src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/menu.jpg" data-ng-mouseover="getOptiiVersion()" data-ng-mouseleave="showOptiiVersion=false">
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li id="rosterid" data-ng-show="hasAccess('Hub_Roster')"><a data-ng-click="menuExpander()" href="#roster"><span>Roster</span><img title="Roster" src='http://hkcluatpa01.optii.net/Optii.Web.Hub/img/menu-roster.png' style="width: 30px; margin: 10px 13px" /></a></li>
+            <li id="assignment" data-ng-show="hasAccess('Hub_StaffAssign')"><a data-ng-click="menuExpander()" href="#assingnment"><span>Assignment</span><img title="Assignment" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/PA_Staff_Assignment_1.png" /></a></li>
+            <li id='tasklist' data-ng-show="hasAccess('Hub_FO_Dashboard') || hasAccess('Hub_Patasklist')"><a data-ng-click="menuExpander()" href="#dashboard"><span>Task List</span><img title="Task_List" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/PA_Task_List_1.png" /></a></li>
+
+            <li id="worklog" data-ng-show="hasAccess('Hub_Worklog')" onclick="worklogclick()"><a data-ng-click="menuExpander()" href="#worklog"><span>Reports</span><img title="Reports" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/menu-reports.png"></a></li>
+
+            <li id="config" data-ng-show="hasAccess('Hub_Configuration')"><a data-ng-click="menuExpander()" href="#configuration"><span>Configuration</span><img title="Configuration" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/menu-config.png" /></a></li>
+            <li id="session" data-ng-show="hasAccess('Hub_Session')"><a data-ng-click="menuExpander()" href="#session"><span>Session</span><img title="Session" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/Session 40x40_1.PNG" /></a></li>
+            <li id="ViewNotes" data-ng-show="hasAccess('Hub_Notes')"><a data-ng-click="menuExpander()" href="#ViewNotes"><span>View Notes</span><img title="View Notes" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/Notes1.PNG" /></a></li>
+            <li id="Dashboards" data-ng-show="hasAccess('Hub_Dashboards')"><a data-ng-click="menuExpander()" href="#Dashboards"><span>Dashboards</span><img title="Dashboards" src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/dashboard1.jpg" /></a></li>
+        </ul>
+    </nav>
+    <!-- <header>
+      <div class="row-fluid">
+          <div class="span6">
+              <img src="http://hkcluatpa01.optii.net/Optii.Web.Hub/img/image001.png" style="height:54px;width:130px;" />
+          </div>
+      </div>
+  </header> -->
