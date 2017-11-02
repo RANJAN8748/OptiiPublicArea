@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {trigger, state, style, transition, animate, keyframes} from '@angular/animations';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-left-panel',
@@ -20,20 +18,11 @@ import { AuthService } from '../auth.service';
 })
 export class LeftPanelComponent implements OnInit {
 state: String = 'small';
-  constructor(private router: Router, private user: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
   }
   menuExpander() {
     this.state = (this.state === 'small' ? 'large' : 'small');
-  }
-  loginUser(e) {
-    e.preventDefault();
-  const username = e.target[0].value;
-  const password = e.target[0].value;
-  if (username === 'admin' && password === 'admin' ) {
-    this.user.setUserLoggedIn();
-    this.router.navigate(['dashboard']);
-  }
   }
 }
