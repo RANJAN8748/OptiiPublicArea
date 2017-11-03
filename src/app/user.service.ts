@@ -1,12 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserService {
 
-  constructor(private _http: Http) { }
+  constructor(private http: Http) { }
+// getAllUsers() {
+//    const _url = 'https://restcountries.eu/rest/v2/name/india?fullText=true';
+//   return this.http.get('https://restcountries.eu/rest/v2/name/india?fullText=true_url');
+
+// }
 getAllUsers() {
-  // const _url = 'https://restcountries.eu/rest/v2/name/india?fullText=true';
-  return this._http.get('https://restcountries.eu/rest/v2/name/india?fullText=true_url');
+  const apiServerEndPoint = 'https://restcountries.eu/rest/v2/name/india?fullText=true';
+  return this.http.get(apiServerEndPoint)
+  .map(this.extractData)
+  .catch(this.catchError);
+}
+private extractData(res: Response) {
+  return res.json();
+}
+private catchError(error: Response | any) {
+  return Observable.throw(error.json().error || 'Server Error');
 }
 }

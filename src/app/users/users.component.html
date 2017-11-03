@@ -1,4 +1,14 @@
-<p>
-  users works!
-</p>
-<div>{{users.name}}</div>
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Native Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let us of users">
+      <td>{{us.name}}</td>
+      <td>{{us.nativeName}}</td>      
+    </tr>
+  </tbody>
+</table>

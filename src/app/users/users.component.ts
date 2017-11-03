@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import { Iuser } from '../user/iuser';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -8,13 +11,12 @@ import 'rxjs/add/operator/map';
   providers: [UserService]
 })
 export class UsersComponent implements OnInit {
- users: any;
+ users: Iuser[];
   constructor(private user: UserService) { }
 ngOnInit() {
-  this.user.getAllUsers().map((response) => response.json()).subscribe((data) => this.users = data[1].name);
-  console.log(this.users);
+  this.getUser();
  }
-// getUser() {
-// this.user.getUsers().subscribe(res => this.users = res.json()[0]);
-// }
+getUser() {
+  this.user.getAllUsers().subscribe((data) => this.users = [{name : data[0].name, nativeName : data[0].nativeName}] );
+}
 }
