@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
+import { MatTableModule } from '@angular/material';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { DeviceComponent } from './device/device.component';
 import { PausereasonsComponent } from './pausereasons/pausereasons.component';
 import { QrcodeComponent } from './qrcode/qrcode.component';
 import { UserService } from './user.service';
+import { UserroleService } from './services/userrole.service';
 
 const appRoutes: Routes = [
   {
@@ -163,9 +165,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes, {useHash: true}),
-    HttpModule
+    HttpModule,
+    MatTableModule
   ],
-  providers: [AuthService, AuthGuard, UserService],
+  providers: [AuthService, AuthGuard, UserService, UserroleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

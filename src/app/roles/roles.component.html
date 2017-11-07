@@ -1,3 +1,33 @@
-<p>
-  roles works!
-</p>
+
+<div>
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="roleId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ROLE ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.roleId}} </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="roleName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> USER ROLE </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.roleName}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="functionName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> JOB FUNCTION </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.functionName}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (dblclick)="ranjan()" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <!-- <mat-paginator #paginator
+  [length]="dataSource.data.length"
+  [pageIndex]="0"
+  [pageSize]="25"
+  [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator> -->
+</div>

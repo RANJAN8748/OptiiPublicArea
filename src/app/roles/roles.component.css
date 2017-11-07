@@ -1,6 +1,9 @@
 :host{
-    padding-top: 100px;
+    padding-top: 30px;
     flex-grow: 1;
     display: flex;
     justify-content: center;
+}
+div {
+    width: 90%;
 }

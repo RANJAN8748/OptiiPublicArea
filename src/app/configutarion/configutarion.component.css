@@ -30,9 +30,12 @@ li.active {
 }
 nav#configuration_nav li a {
     color: rgb(255, 255, 255);
-    font-size: 1.1em;
+    font-size: 0.9em;
 }
 li.active span {
     background: #fff;
     color: #555;
+}
+div {
+    width: 100%;
 }

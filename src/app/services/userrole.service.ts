@@ -5,16 +5,11 @@ import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class UserService {
+export class UserroleService {
 
   constructor(private http: Http) { }
-// getAllUsers() {
-//    const _url = 'https://restcountries.eu/rest/v2/name/india?fullText=true';
-//   return this.http.get('https://restcountries.eu/rest/v2/name/india?fullText=true_url');
-
-// }
-getAllUsers() {
-  const apiServerEndPoint = 'http://localhost:58466/api/user';
+ getAllrole() {
+  const apiServerEndPoint = 'http://localhost:58466/api/role';
   return this.http.get(apiServerEndPoint)
   .map(this.extractData)
   .catch(this.catchError);

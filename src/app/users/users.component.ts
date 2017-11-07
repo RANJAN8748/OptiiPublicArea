@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Iuser } from '../user/iuser';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-users',
@@ -11,12 +12,22 @@ import { Iuser } from '../user/iuser';
   providers: [UserService]
 })
 export class UsersComponent implements OnInit {
- users: Iuser[];
+  dataSource = new UserDataSource(this.user);
+  displayedColumns = ['lastName', 'firstName', 'userName', 'roleName', 'typerowActiveId'];
   constructor(private user: UserService) { }
 ngOnInit() {
-  this.getUser();
  }
-getUser() {
-  this.user.getAllUsers().subscribe((data) => this.users = [{name : data[0].name, nativeName : data[0].nativeName}] );
+ ranjan() {
+   alert('ranjan');
+ }
 }
+export class UserDataSource extends DataSource<any> {
+constructor(private userService: UserService) {
+super();
+}
+connect(): Observable<Iuser[]> {
+  return this.userService.getAllUsers();
+}
+disconnect() {}
+
 }
